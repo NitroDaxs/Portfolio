@@ -1,7 +1,6 @@
 const button = document.querySelector("[data-theme-toggle]");
-
-button.addEventListener("click", () => {
-    const currentThemeSetting = localStorage.getItem("data-theme");
+function toggleTheme(){
+  const currentThemeSetting = localStorage.getItem("data-theme");
     const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
 
     const sunIcon = `
@@ -17,13 +16,14 @@ button.addEventListener("click", () => {
    document.documentElement.setAttribute("data-theme", newTheme);
 
    localStorage.setItem("data-theme", newTheme);
-});
+}
 
-function navbarSizing() {
-    var x = document.getElementById("myNavbar");
-    if (x.className === "navbar") {
-      x.className  += "responsive";
-    } else {
-      x.className = "navbar";
-    }
-  }
+function showSidebar(){
+  const sidebar = document.querySelector('.sideBar');
+  sidebar.style.display = 'flex';
+}
+
+function hideSidebar(){
+  const sidebar = document.querySelector('.sideBar');
+  sidebar.style.display = 'none';
+}
